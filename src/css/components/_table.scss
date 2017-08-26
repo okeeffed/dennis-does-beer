@@ -1,0 +1,27 @@
+.table {
+	padding: 10px 10px 10px 30px;
+
+	background-color: transparent;
+
+	@include f-primary-regular;
+	font-size: 1.7rem;
+
+	.heading {
+	    padding: 10px 0;
+	}
+
+	> tr {
+		height: 30px;
+	}
+
+	.one {
+		margin-right: 80px;
+		width: 80px;
+		text-align: left;
+	}
+
+	.two {
+		width: 306px;
+		text-align: left;
+	}
+}

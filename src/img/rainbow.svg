@@ -1,0 +1,22 @@
+<?xml version="1.0"?><svg width="640" height="480" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <g>
+  <title>Layer 1</title>
+  <defs>
+   <symbol id="svg_11" height="460" width="899.99994">
+
+    <metadata id="svg_10">image/svg+xmlRainbow Semicircle18 May 2009Jeremy BennettJeremy BennettJeremy BennettrainbowsemicircleA stylised rainbow half circleJeremy Bennett</metadata>
+    <g transform="translate(-5.02999e-07, -140)" id="svg_2">
+     <path fill="none" stroke="#ff0000" stroke-width="9.556271" stroke-linecap="square" stroke-linejoin="round" stroke-miterlimit="4" stroke-dashoffset="0" transform="matrix(1.29412, 0, 0, 3.38462, -119.412, 48.4615)" d="m100,160a340,130 0 0 1 680,0" id="svg_9"/>
+     <path fill="none" stroke="#ff7f00" stroke-width="10.011332" stroke-linecap="square" stroke-linejoin="round" stroke-miterlimit="4" stroke-dashoffset="0" transform="matrix(1.23529, 0, 0, 3.23077, -93.5294, 73.0769)" d="m100,159.999985a340,130 0 0 1 680,0.000015" id="svg_8"/>
+     <path fill="none" stroke="#ffff00" stroke-width="10.511898" stroke-linecap="square" stroke-linejoin="round" stroke-miterlimit="4" stroke-dashoffset="0" transform="matrix(1.17647, 0, 0, 3.07692, -67.6471, 97.6923)" d="m100,159.999985a340,130 0 0 1 680,0.000015" id="svg_7"/>
+     <path fill="none" stroke="#00ff00" stroke-width="11.065156" stroke-linecap="square" stroke-linejoin="round" stroke-miterlimit="4" stroke-dashoffset="0" transform="matrix(1.11765, 0, 0, 2.92308, -41.7647, 122.308)" d="m100,159.999985a340,130 0 0 1 680,0.000015" id="svg_6"/>
+     <path fill="none" stroke="#0000ff" stroke-width="11.679887" stroke-linecap="square" stroke-linejoin="round" stroke-miterlimit="4" stroke-dashoffset="0" transform="matrix(1.05882, 0, 0, 2.76923, -15.8823, 146.923)" d="m100,159.999985a340,130 0 0 1 680,0.000015" id="svg_5"/>
+     <path fill="none" stroke="#6600ff" stroke-width="12.366939" stroke-linecap="square" stroke-linejoin="round" stroke-miterlimit="4" stroke-dashoffset="0" transform="matrix(1, 0, 0, 2.61538, 10, 171.538)" d="m100,159.999985a340,130 0 0 1 680,0.000015" id="svg_4"/>
+     <path fill="none" stroke="#8b00ff" stroke-width="13.139872" stroke-linecap="square" stroke-linejoin="round" stroke-miterlimit="4" stroke-dashoffset="0" transform="matrix(0.941176, 0, 0, 2.46154, 35.8824, 196.154)" d="m100,159.999985a340,130 0 0 1 680,0.000015" id="svg_3"/>
+    </g>
+   </symbol>
+  </defs>
+  <use x="0" y="0" transform="matrix(0.7141, 0, 0, 0.768106, -3.3451, 70.2254)" xlink:href="#svg_11" id="svg_12"/>
+ </g>
+</svg>
