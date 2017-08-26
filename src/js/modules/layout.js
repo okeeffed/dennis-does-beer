@@ -75,7 +75,7 @@ class Layout {
 	}
 
 	rate(beer) {
-		if (null) return 'Not rated';
+		if (beer === null) return 'Not rated';
 
 		const splitFirst = beer.split('(');
 		const splitSecond = splitFirst[splitFirst.length - 1].split(')');

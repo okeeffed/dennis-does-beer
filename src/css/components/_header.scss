@@ -1,3 +1,16 @@
-.primary-header {
-  color: $c-black;
+.header {
+	padding: 16px 20px;
+	color: $c-primary;
+	background-color: $c-white;
+
+	.title {
+		margin-bottom: 0;
+
+		@include f-primary-bold;
+		font-size: 1.6rem;
+
+		@include grid-media($mobile) {
+			font-size: 1.2rem;
+		}
+	}
 }

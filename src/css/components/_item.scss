@@ -8,6 +8,7 @@
 		position: relative;
 
 		padding: 16px;
+		padding-right: 56px;
 		margin-bottom: 20px;
 		height: 80px;
 	}
@@ -53,12 +54,21 @@
 
 		@include grid-media($mobile) {
 			max-width: 160px;
+			font-size: 1.4rem;
 		}
 	}
 
 	.details {
+		min-height: 190px;
+
 		margin-bottom: 10px;
 		padding: 0 40px;
+		padding-right: 56px;
+
+		@include grid-media($tablet) {
+			min-height: inherit;
+			margin-bottom: 30px;
+		}
 	}
 
 	.description {
@@ -79,11 +89,23 @@
 		margin: 0;
 		@include f-primary-bold;
 		font-size: 1.8rem;
+
+		@include grid-media($mobile) {
+			font-size: 1.4rem;
+		}
 	}
 
 	.rating {
 		@include f-primary-regular;
 		font-size: 1.4rem;
+
+		@include grid-media($mobile) {
+			font-size: 1.3rem;
+		}
+
+		&:last-of-type {
+			margin: 0;
+		}
 	}
 
 	.type {

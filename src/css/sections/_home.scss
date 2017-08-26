@@ -1,17 +1,26 @@
 .home {
 	padding: 70px 0;
 
+	@include grid-media($mobile) {
+		padding: 30px 0;
+	}
+
 	.title {
+		padding: 0 10px;
+		margin: 0 auto;
 		margin-bottom: 40px;
+
 		text-align: center;
 		color: $c-white;
 
 		@include grid-media($mobile) {
-			font-size: 4.8rem;
+			max-width: 300px;
+			font-size: 4.2rem;
 		}
 	}
 
 	.subtitle {
+		padding: 0 10px;
 		margin-bottom: 0;
 
 		text-align: center;
@@ -22,5 +31,9 @@
 	.table {
 		margin: 0 auto 70px;
 		color: $c-white;
+
+		@include grid-media($mobile) {
+			margin-bottom: 20px;
+		}
 	}
 }
