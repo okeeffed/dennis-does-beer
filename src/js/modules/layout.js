@@ -1,19 +1,41 @@
 import axios from 'axios';
 import Loading from './loading';
 
+const query = `query{
+	beers {
+	  beer
+	  brewery
+	  style
+	  abv
+	  ibu
+	  my_rating
+	  global_rating
+	  first_checkin
+	  last_checkin
+    image
+	}
+}`;
+
 class Layout {
 	/**
 	 * Fetch Github details and populate data.
 	 */
 	init() {
 		Loading.append();
-		axios.get('https://api.github.com/users/okeeffed/starred')
+		axios.post('http://localhost:3090/graphql',
+			{
+				headers: {
+					'Content-Type': 'application/graphql',
+				},
+				query: query
+			})
 			.then(res => {
+				const beers = res.data.data.beers;
 				Loading.removeFrom();
 
 				const grid = document.querySelector('.grid');
-				res.data.map((item, index) => {
-					const el = this.render(item);
+				beers.map((beer, index) => {
+					const el = this.render(beer);
 					let parent = document.createElement('div');
 					parent.innerHTML = el;
 
@@ -29,32 +51,45 @@ class Layout {
 			});
 	}
 
+	/**
+	 * Render the req data as a grid item.
+	 * @param  {[Object object]} item Beer data item.
+	 */
 	render(item) {
-		return `<div class="item -four e-raised">
+		return `<div class="item -four e-raised e-hover-floating a-animate">
 			<div class="info">
-				<img class="image" src="${item.owner.avatar_url}" />
-				<div class="name">${item.name}</div>
-				<div class="fullname">${item.full_name}</div>
+				<img class="image" src="${item.image}" alt="${item.beer}">
+				<h3 class="name">${item.beer}</h3>
+				<h3 class="company">${item.brewery}</h3>
 			</div>
 			<div class="details">
-				<p class="description">${item.description}</p>
+				<p class="abv">${item.abv}</p>
+				<p class="ibu m-bottom-10">${item.ibu}</p>
+				<p class="rating-title">My rating</p>
+				<p class="rating">${this.rate(item.my_rating)}</p>
+				<p class="rating-title">Global rating</p>
+				<p class="rating">${this.rate(item.global_rating)}</p>
 			</div>
-			<div class="stats">
-				<div class="stars icon-container">
-					<img class="icon" src="/img/icon_star.png" href="Star count" />
-					<p class="stat">${item.stargazers_count} stars</p>
-				</div>
-				<div class="forks icon-container">
-					<img class="icon" src="/img/icon_fork.png" href="Fork count" />
-					<p class="stat">${item.forks} forks</p>
-				</div>
-				<div class="issues icon-container">
-					<img class="icon" src="/img/icon_issue.png" href="Issue count" />
-					<p class="stat">${item.open_issues} open issues</p>
-				</div>
-			</div>
-			<a target="_blank" href="${item.html_url }" class="button e-raised e-hover-floating">git more.</a>
+			<p class="type">${item.style}</p>
 		</div>`;
+	}
+
+	rate(beer) {
+		if (null) return 'Not rated';
+
+		const splitFirst = beer.split('(');
+		const splitSecond = splitFirst[splitFirst.length - 1].split(')');
+		const rating = parseFloat(splitSecond[0]);
+
+		if (rating < 1) return `New Year's 2011`;
+		if (rating < 2) return `Squashed Macca's cheese burger`;
+		if (rating < 3) return `The best of Nicolas Cage`;
+		if (rating < 3.5) return `Batman vs Superman: Dawn of Justice`;
+		if (rating < 4) return `Little bit hey how ya garn`;
+		if (rating < 4.5) return `Hey how ya garn`;
+		if (rating < 5) return `Milton mangoes`;
+
+		return 'Rated';
 	}
 }
 

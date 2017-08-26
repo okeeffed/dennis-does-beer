@@ -1,5 +1,5 @@
 .home {
-	padding: 70px 10px;
+	padding: 70px 0;
 
 	.title {
 		margin-bottom: 40px;
@@ -13,8 +13,10 @@
 
 	.subtitle {
 		margin-bottom: 0;
+
 		text-align: center;
 		color: $c-white;
+		line-height: 20px;
 	}
 
 	.table {

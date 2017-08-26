@@ -6,6 +6,6 @@ $a-mobile: 300ms;
 $a-mobile-enter: 225ms;
 $a-mobile-exit: 195ms;
 
-.animate {
-	transition: all $a-desktop ease-out;
+.a-animate {
+	transition: all $a-desktop-exit ease-out;
 }
