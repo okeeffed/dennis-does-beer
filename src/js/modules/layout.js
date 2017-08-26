@@ -3,16 +3,16 @@ import Loading from './loading';
 
 const query = `query{
 	beers {
-	  beer
-	  brewery
-	  style
-	  abv
-	  ibu
-	  my_rating
-	  global_rating
-	  first_checkin
-	  last_checkin
-    image
+		beer
+		brewery
+		style
+		abv
+		ibu
+		my_rating
+		global_rating
+		first_checkin
+		last_checkin
+    	image
 	}
 }`;
 
@@ -22,7 +22,7 @@ class Layout {
 	 */
 	init() {
 		Loading.append();
-		axios.post('http://localhost:3090/graphql',
+		axios.post('https://heapsdecentapi.now.sh/graphql',
 			{
 				headers: {
 					'Content-Type': 'application/graphql',
