@@ -301,7 +301,6 @@ gulp.task("build", function (callback) {
 
 // Publish to S3
 gulp.task('publish', function () {
-
 	const publisher = $.awspublish.create({
 		region: 'ap-southeast-2',
 		params: {
@@ -318,10 +317,39 @@ gulp.task('publish', function () {
 		indexRootPath: true
 	};
 
-	const files = gulp.src(['dist/**'])
+	const html = gulp.src('dist/**/*.html')
+		.pipe($.rename(function (path) {
+			path.dirname = '/' + path.dirname;
+			path.extname = '';
+		}))
+		.pipe(publisher.publish({
+			'Content-Type': 'text/html',
+			'Cache-Control': 'max-age=300, no-transform, public'
+		}));
+
+	const files = gulp.src(['dist/**', '!dist/**/*.html'])
+		.pipe($.rename(function (path) {
+			path.dirname = '/' + path.dirname;
+		}))
+		.pipe($.awspublishRouter({
+            cache: {
+                // cache for 5 minutes by default
+                cacheTime: 300
+            },
+            routes: {
+            	"^(js|css|img|fonts)/.+$": {
+                    // cache static assets for a week
+                    cacheTime: 604800
+                },
+
+            	// pass-through for anything that wasn't matched by routes above, to be uploaded with default options
+            	"^.+$": "$&"
+            }
+        }))
 		.pipe(publisher.publish());
 
-	return files.pipe(publisher.cache())
+	return merge(files, html)
+		.pipe(publisher.cache())
 		.pipe($.awspublish.reporter())
 		.pipe($.cloudfrontInvalidateAwsPublish(invalidator));
 });
